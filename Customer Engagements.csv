@@ -1,0 +1,11 @@
+customer_id,num_of_users,_of_all_employees,sso,launched
+101,10000,65%,Y,Yes
+102,23423,80%,N,No
+103,34556,30%,Y,Yes
+104,123123,33%,N,No
+105,19832,36%,Y,Yes
+106,1243,75%,N,No
+107,1231,42%,Y,Yes
+108,12200,90%,N,No
+109,200,48%,Y,Yes
+110,1100,51%,N,No

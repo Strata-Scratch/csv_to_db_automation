@@ -1,0 +1,11 @@
+customer_name,start_date,end_date,contract_amount_m,invoice_sent,paid
+Nike,01-02-2019,12-20-2020,2.98,Yes,Yes
+Reebox,06-20-2017,,3.9,No,No
+Adidas,12-07-2015,6-20-2018,4.82,Yes,Yes
+Google,05-25-2014,03-20-2017,5.74,Yes,No
+Amazon,11-10-2012,12-20-2015,6.66,No,Yes
+Facebook,04-29-2011,,7.58,Yes,No
+Apple,10-15-2009,,8.5,Yes,Yes
+Airbnb,04-02-2008,,9.42,No,No
+Nest,09-19-2006,,3.0,Yes,Yes
+Canon,03-07-2005,09-20-2009,11.26,Yes,No
