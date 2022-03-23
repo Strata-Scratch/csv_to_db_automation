@@ -2,6 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 import psycopg2
+import shutil
 
 def csv_files():
 
@@ -18,30 +19,27 @@ def configure_dataset_directory(csv_files, dataset_dir):
   
     #make dataset folder to process csv files
     try: 
-      mkdir = 'mkdir {0}'.format(dataset_dir)
-      os.system(mkdir)
-    except:
+      os.mkdir(dataset_dir)
+    except FileExistsError:
       pass
 
     #move csv files to dataset folder
     for csv in csv_files:
-      mv_file = "mv '{0}' {1}".format(csv, dataset_dir)
-      os.system(mv_file)
-
+      shutil.move(csv, dataset_dir)
     return
 
 
 def create_df(dataset_dir, csv_files):
   
-    data_path = os.getcwd()+'/'+dataset_dir+'/'
+    data_path = os.path.join(os.getcwd(),dataset_dir)
 
     #loop through the files and create the dataframe
     df = {}
     for file in csv_files:
         try:
-            df[file] = pd.read_csv(data_path+file)
+            df[file] = pd.read_csv(os.path.join(data_path,file))
         except UnicodeDecodeError:
-            df[file] = pd.read_csv(data_path+file, encoding="ISO-8859-1") #if utf-8 encoding error
+            df[file] = pd.read_csv(os.path.join(data_path,file), encoding="ISO-8859-1") #if utf-8 encoding error
         print(file)
     
     return df
@@ -118,4 +116,3 @@ def upload_to_db(host, dbname, user, password, tbl_name, col_str, file, datafram
     print('table {0} imported to db completed'.format(tbl_name))
 
     return
-
